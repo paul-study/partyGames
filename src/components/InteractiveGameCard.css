@@ -1,0 +1,430 @@
+.interactive-game-card {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 15px;
+  padding: 25px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  display: flex;
+  flex-direction: column;
+  min-height: 400px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.interactive-game-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.game-title {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #333;
+  margin: 0;
+  flex: 1;
+  line-height: 1.3;
+}
+
+.difficulty-badge {
+  color: white;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-left: 15px;
+}
+
+.card-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.game-description {
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  font-size: 0.95rem;
+}
+
+.result-display {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 15px;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 15px 0;
+  transition: all 0.3s ease;
+}
+
+.result-display.animating {
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.player-management {
+  margin: 15px 0;
+}
+
+.players-list h5 {
+  color: #333;
+  margin-bottom: 10px;
+  font-size: 1rem;
+}
+
+.players-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 15px;
+}
+
+.player-chip {
+  background: rgba(102, 126, 234, 0.1);
+  border: 1px solid rgba(102, 126, 234, 0.3);
+  border-radius: 20px;
+  padding: 5px 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.remove-player {
+  background: rgba(244, 67, 54, 0.8);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 1;
+  transition: all 0.2s ease;
+}
+
+.remove-player:hover {
+  background: rgba(244, 67, 54, 1);
+  transform: scale(1.1);
+}
+
+.add-player-input {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.add-player-input input {
+  flex: 1;
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 0.9rem;
+}
+
+.add-player-input button {
+  padding: 8px 12px;
+  background: #667eea;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+.add-player-input button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.add-player-input button:hover {
+  background: #5a6fd8;
+}
+
+.add-player-input button:last-child {
+  background: #666;
+}
+
+.add-player-input button:last-child:hover {
+  background: #555;
+}
+
+.add-player-btn {
+  background: rgba(102, 126, 234, 0.1);
+  border: 2px dashed rgba(102, 126, 234, 0.3);
+  color: #667eea;
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.add-player-btn:hover {
+  background: rgba(102, 126, 234, 0.2);
+  border-color: rgba(102, 126, 234, 0.5);
+}
+
+.player-controls {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.remove-last-player-btn {
+  background: rgba(244, 67, 54, 0.1);
+  border: 2px dashed rgba(244, 67, 54, 0.3);
+  color: #f44336;
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.remove-last-player-btn:hover {
+  background: rgba(244, 67, 54, 0.2);
+  border-color: rgba(244, 67, 54, 0.5);
+}
+
+.no-players-message {
+  background: rgba(255, 193, 7, 0.1);
+  border: 1px solid rgba(255, 193, 7, 0.3);
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.no-players-message p {
+  color: #ff6f00;
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.clear-players-section {
+  margin-top: 15px;
+  text-align: center;
+}
+
+.clear-all-players-btn {
+  background: rgba(244, 67, 54, 0.1);
+  border: 1px solid rgba(244, 67, 54, 0.3);
+  color: #f44336;
+  padding: 8px 16px;
+  border-radius: 15px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: all 0.3s ease;
+}
+
+.clear-all-players-btn:hover {
+  background: rgba(244, 67, 54, 0.2);
+  border-color: rgba(244, 67, 54, 0.5);
+  transform: translateY(-1px);
+}
+
+.kings-cup-status {
+  background: rgba(102, 126, 234, 0.1);
+  border: 1px solid rgba(102, 126, 234, 0.3);
+  border-radius: 10px;
+  padding: 15px;
+  margin: 15px 0;
+}
+
+.game-progress {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.game-progress > div {
+  text-align: center;
+  flex: 1;
+}
+
+.cards-left {
+  color: #667eea;
+  font-weight: 600;
+}
+
+.kings-count {
+  color: #f44336;
+  font-weight: 600;
+}
+
+.current-player {
+  color: #4CAF50;
+  font-weight: 600;
+}
+
+.last-cards h5 {
+  margin: 10px 0 8px 0;
+  color: #333;
+  font-size: 0.9rem;
+}
+
+.recent-cards {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+}
+
+.drawn-card {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 4px 8px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.math-input {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.math-problem-display {
+  background: rgba(255, 235, 59, 0.1);
+  border-radius: 15px;
+  border: 2px solid rgba(255, 235, 59, 0.3);
+  padding: 20px;
+  margin: 15px 0;
+  text-align: center;
+}
+
+.math-question {
+  margin-bottom: 15px;
+}
+
+.math-question h3 {
+  font-size: 2rem;
+  color: #333;
+  margin: 0;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.math-answer-input {
+  flex: 1;
+  padding: 12px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  text-align: center;
+  font-weight: bold;
+  max-width: 100px;
+}
+
+.math-answer-input:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.check-answer-btn {
+  background: #4CAF50;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.check-answer-btn:hover:not(:disabled) {
+  background: #45a049;
+  transform: translateY(-1px);
+}
+
+.check-answer-btn:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+.play-button {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 25px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: auto;
+  align-self: center;
+}
+
+.play-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.play-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.play-button.disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+.play-button.playing {
+  animation: pulse 1s infinite;
+}
+
+@media (max-width: 768px) {
+  .interactive-game-card {
+    padding: 20px;
+    min-height: 350px;
+  }
+  
+  .game-title {
+    font-size: 1.2rem;
+  }
+  
+  .game-description {
+    font-size: 0.9rem;
+  }
+  
+  .result-display {
+    font-size: 1rem;
+    padding: 12px;
+  }
+  
+  .play-button {
+    font-size: 1rem;
+    padding: 12px 24px;
+  }
+}
