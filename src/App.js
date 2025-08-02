@@ -142,6 +142,7 @@ function App() {
       
       <footer className="footer">
         <p>&copy; 2025 Drinking Games. Made with ❤️ for epic parties! Please drink responsibly.</p>
+        <p>Check out my art page <a href="https://www.facebook.com/share/171f6vb4Z7/" target="_blank" rel="noopener noreferrer">Paul J Hika Artist</a>.</p>
       </footer>
     </div>
   );
